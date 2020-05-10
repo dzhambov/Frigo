@@ -1,6 +1,6 @@
 #  FRIGO
 
-### A web application that helps busy people stay organized in the kitchen and . May 9th, 2020
+### A web application that helps busy people with their grocery list and meal ideas. May 9th, 2020
 #### _By: Hristo Dzhambov_
 
 ------------------------------
@@ -13,16 +13,29 @@
 
 ## 📖 Description
 
-_Meal planning is hard, especially if you have a demanding job and a family. Frigo will help these struggling individuals and families by reminding them about what is on their grocery list, reduce food waste and come up with delicious and nutritious recipes._
+_Meal planning is hard, especially if you have demanding job and a family. Frigo will help these struggling individuals and families by reminding them about what is on their grocery list, reduce food waste and come up with delicious and nutritious recipes._
 
+------------------------------
 
 ## Specifications
-* The user is able to create, read, and update taps in the tap room.
-* The user is able to submit a form to add a new kegs to a list.
-* The user is able to click on a keg to see its detail page.
-* The user is able to see how many pints are left in a keg.
-* The user is able to sell a pint from the list and the quantity is reduced by 1.
-* When the quantity of a tap reaches 0, the user will get a message "out of stock". A user should not be able to see quantity of a tap below 0.
+
+### Minimum-Viable Product
+
+* The user is able to creat an account and log in.
+* The user is able to create, read, and update items that are in the fridge.
+* The user is able to submit a form to add new items to a list.
+* The user is able to click on a item to see its details page.
+* The user is able to see how many units are left of an item.
+* The user is able to log used item from the list and the quantity is reduced by 1.
+* When the quantity of a tap reaches 0, the user will get a message "out of stock".  
+* A user should not be able to see quantity of a tap below 0.
+
+### Additional Features
+
+* It would be great if FRIGO can create a grocery list and send a reminder text with confirmation about the list and possibly place the order.
+* Option to save favorite recipes and share with your friends.
+* Option to upload and save cooking techniques(short video).
+* Option to display the nutritional value of the recipe chosen.
 
 ------------------------------
 
@@ -48,8 +61,8 @@ _Please visit the [Node.js website](https://nodejs.org/en/download/) for install
 
 _Clone this repository via Terminal using the following commands:_
 * _$ cd desktop_
-* _$ git clone {https://github.com/dzhambov/Tap-Room-React}_
-* _$ cd Tap-Room-React_
+* _$ git clone {https://github.com/dzhambov/Frigo}_
+* _$ cd Frigo_
 * _Confirm that you are in the correct directory by typing pwd_
 * _Install npm at the project's root directory_
 * _$ npm install_
@@ -66,7 +79,7 @@ _There are no known bugs at this time._
 
 ## ✉️ Support and Contact Details
 
-_Have a bug or an issue with this application? [Open a new issue](https://github.com/dzhambov/Tap-Room-React/issues) here on GitHub._
+_Have a bug or an issue with this application? Open a new issue [here](https://github.com/dzhambov/Frigo/issues) on GitHub._
 
 ------------------------------
 
