@@ -1,68 +1,71 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Thirsty Tap Room
 
-## Available Scripts
+### A web application that helps tap rooms track their sells and inventory. April 24, 2020
+#### _By: Hristo Dzhambov_
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+_A web application that is built in React to track taproom's inventory and the selections are listed by name, brand, flavor and price. The application helps the user to list the selection, add new items, see details and track how many pints are left in a keg._
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Component Tree
+![Component Tree Image](src/img/Tap-Room.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Specifications
+* The user is able to create, read, and update taps in the tap room.
+* The user is able to submit a form to add a new kegs to a list.
+* The user is able to click on a keg to see its detail page.
+* The user is able to see how many pints are left in a keg.
+* The user is able to sell a pint from the list and the quantity is reduced by 1.
+* When the quantity of a tap reaches 0, the user will get a message "out of stock". A user should not be able to see quantity of a tap below 0.
 
-### `npm test`
+## Setup/Installation Requirements
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Node install
 
-### `npm run build`
+###### For macOS:
+_If Homebrew is not installed on your computer already, then install Homebrew by entering the following two commands in Terminal:_
+* $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+* $ echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bash_profile
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+_Install Git with the following command:_
+* $ brew install git
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+_Next, install Node.js by entering the following command in Terminal:_
+* $ brew install node
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+###### For Windows:
+_Please visit the [Node.js website](https://nodejs.org/en/download/) for installation instructions._
 
-### `npm run eject`
+#### Install this application
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+_Clone this repository via Terminal using the following commands:_
+* _$ cd desktop_
+* _$ git clone {https://github.com/dzhambov/Tap-Room-React}_
+* _$ cd Tap-Room-React_
+* _Confirm that you are in the correct directory by typing pwd_
+* _Install npm at the project's root directory_
+* _$ npm install_
+* _$ npm run build_
+* _$ npm install --save-exact react-scripts@3.2.0_
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Known Bugs
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+_There are no known bugs at this time._
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Support and Contact Details
 
-## Learn More
+_Have a bug or an issue with this application? [Open a new issue](https://github.com/dzhambov/Tap-Room-React/issues) here on GitHub._
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technologies Used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* React
+* JavaScript
+* Webpack
+* Git
+* npm
 
-### Code Splitting
+### License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+[MIT](https://choosealicense.com/licenses/mit/)
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Copyright &copy; 2020 **_Hristo Dzhambov_** 
