@@ -96,7 +96,7 @@ _Have a bug or an issue with this application? Open a new issue [here](https://g
 
 ## ⚖ License
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Copyright (c) 2020 Amber Doe Jr. All Rights Reserved.
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Copyright &copy; 2020 _Hristo Dzhambov_ All Rights Reserved.
 ```
 MIT License
 
