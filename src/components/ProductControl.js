@@ -6,6 +6,7 @@ import EditProductForm from './EditProduct';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as a from './../actions';
+import { act } from 'react-dom/test-utils';
 
 class ProductControl extends React.Component {
 
@@ -18,26 +19,24 @@ class ProductControl extends React.Component {
   }
 
   handleClick = () => {
-    if(this.state.selectedProduct !== null) {
+    if (this.state.selectedProduct !== null) {
       this.setState({
-        formVisibleOnPage: false,
         selectedProduct: null,
         editing: false
       });
-    }else{
-      // this.setState(prevState => ({
-      //   formVisibleOnPage: !prevState.formVisibleOnPage,
-      // }));
+    } else {
+      const { dispatch } = this.props;
+      const action = a.toggleForm();
+      dispatch(action);
     }
   }
 
   handleAddNewProductToList = (newProduct) => {
     const { dispatch } = this.props;
-    const { }
-    this.setState({
-      masterProductList: newMasterProductList,
-      formVisibleOnPage:false
-    });
+    const action = a.addProduct(newProduct);
+    dispatch(action);
+    const action2 = a.toggleForm();
+    dispatch(action2);
   }
 
   handleChangingSelectedProduct = (id) => {
@@ -66,27 +65,26 @@ class ProductControl extends React.Component {
       masterProductList: [...oldProduct, newProduct],
     });
   }
-
-
-  handleDeletingProduct = (id) => {
-    const newMasterProductList = this.state.masterProductList.filter(product => product.id !== id);
-    this.setState({
-      masterProductList: newMasterProductList,
-      selectedProduct: null
-    });
-  }
-
+  
   handleEditProduct = () => {
     this.setState({editing: true});
   }
-
+  
   handleEditingProductInList = (productToEdit) => {
-    const editedMasterProductList = this.state.masterProductList.filter(product => product.id !== this.state.selectedProduct.id).concat(productToEdit);
+    const { dispatch } = this.props;
+    const action = a.addProduct(productToEdit);
+    dispatch(action);
     this.setState({
-      masterProductList: editedMasterProductList,
       editing: false,
       selectedProduct: null
     });
+  }
+  
+  handleDeletingProduct = (id) => {
+   const  { dispatch } = this.props;
+   const action = a.deleteProduct(id);
+   dispatch(action);
+   this.setState({selectedProduct: null});
   }
 
   render() {
