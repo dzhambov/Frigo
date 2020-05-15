@@ -6,8 +6,8 @@ function ProductDetail(props){
 
   return(
     <React.Fragment>
-      <hr />
       <h1>Product Details:</h1>
+      <hr />
       <h3>Product: <em>{product.name}</em></h3>
       <h3>Brand: <em>{product.brand}</em></h3>
       <h3>Expiration Date: <em>{product.expiration}</em></h3>

@@ -20,7 +20,7 @@ function ReusableForm(props) {
         <input
           type = 'text'
           name = 'quantity'
-          placeholder = 'quantity' /><br/>
+          placeholder = 'Quantity' /><br/>
         <input
           type = 'text'
           name = 'price'

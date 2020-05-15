@@ -2,13 +2,13 @@ import React from "react";
 import Product from "./Product";
 import PropTypes from "prop-types";
 
-function ProductList(props){
+function ProductList(props) {
   
   return (
     <React.Fragment>
       <hr/>
-      {Object.values(props.productList).map((product) => {
-      return <Product 
+      {props.productList.map((product) =>
+       <Product 
         whenProductClicked = { props.onProductSelection }
         name={product.name}
         brand= {product.brand}
@@ -16,16 +16,17 @@ function ProductList(props){
         price= {product.price}
         quantity= {product.quantity}
         id={product.id}
-        key={product.Id}
+        key={product.id}
         useProduct={props.onUseProduct}
-        restockProduct={props.onRestockProduct}/>
-      })}
+        restockProduct={props.onRestockProduct}
+        />
+      )}
     </React.Fragment>
   );
 }
 
 ProductList.propTypes = {
-  productList: PropTypes.object,
+  productList: PropTypes.array,
   onProductSelection: PropTypes.func
 };
 

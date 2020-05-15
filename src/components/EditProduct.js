@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function EditProductForm(props) {
   const { product } = props;
 
-  function handleEditProductFormSubmissioin(event) {
+  function handleEditProductFormSubmission(event) {
     event.preventDefault();
     props.onEditProduct({
       name: event.target.name.value,
@@ -21,7 +21,7 @@ function EditProductForm(props) {
     <React.Fragment>
       <h3>Edit Product</h3>
       <ReusableForm
-        formSubmissionHandler={handleEditProductFormSubmissioin}
+        formSubmissionHandler={handleEditProductFormSubmission}
         buttonText='Update Product' />
     </React.Fragment>
   );
