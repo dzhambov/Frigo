@@ -12,7 +12,6 @@ class ProductControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false,
       selectedProduct: null,
       editing: false
     };
@@ -26,9 +25,9 @@ class ProductControl extends React.Component {
         editing: false
       });
     }else{
-      this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage,
-      }));
+      // this.setState(prevState => ({
+      //   formVisibleOnPage: !prevState.formVisibleOnPage,
+      // }));
     }
   }
 
@@ -107,7 +106,7 @@ class ProductControl extends React.Component {
         onClickingEdit = {this.handleEditProduct} />;
         buttonText = "Return to Product List";
     } 
-    else if (this.state.formVisibleOnPage) {
+    else if (this.props.formVisibleOnPage) {
       currentlyVisibleState = 
       <NewProductForm 
       onNewProductCreation = {this.handleAddNewProductToList} />;
@@ -136,7 +135,8 @@ ProductControl.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    masterProductList: state
+    masterProductList: state.masterProductList,
+    formVisibleOnPage: state.formVisibleOnPage
   }
 }
 ProductControl = connect(mapStateToProps)(ProductControl);
