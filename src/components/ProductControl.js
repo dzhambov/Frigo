@@ -2,8 +2,10 @@ import React from 'react';
 import NewProductForm from './NewProductForm';
 import ProductList from './ProductList';
 import ProductDetail from './ProductDetail';
-import EditProduct from './EditProduct';
 import EditProductForm from './EditProduct';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import * as a from './../actions';
 
 class ProductControl extends React.Component {
 
@@ -127,5 +129,7 @@ class ProductControl extends React.Component {
     );
   }
 }
+
+ProductControl = connect()(ProductControl);
 
 export default ProductControl;
