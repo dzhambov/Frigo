@@ -25,7 +25,7 @@ describe('rootReducer', () => {
 
   test('Check that initial state of productListReducer matches root reducer', () => { 
     const action = {
-      type: 'ADD_PORDUCT',
+      type: c.ADD_PORDUCT,
       name: 'Milk',
       brand: 'Organic Farm',
       expiration: '5/15/2020',

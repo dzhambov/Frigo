@@ -14,6 +14,17 @@ export default (state = {}, action) => {
           id: id
         }
       });
+      case c.USE_PRODUCT:
+        return Object.assign({}, state, {
+          [id]: {
+            name: name,
+            brand: brand,
+            expiration: expiration,
+            price: price,
+            quantity: quantity,
+            id: id
+          }
+        })
       case c.DELETE_PRODUCT:
         const newState = { ...state };
         delete newState[id];

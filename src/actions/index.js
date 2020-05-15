@@ -13,11 +13,24 @@ export const addProduct = (product) => {
   const { name, brand, expiration, price, quantity, id } = product;
   return {
     type: c.ADD_PRODUCT,
-    name: 'Milk',
-    brand: 'Organic Farms',
-    expiration: '5/15/2020',
-    price: '$5',
-    quantity: '1',
+    name: name,
+    brand: brand,
+    expiration: expiration,
+    price: price,
+    quantity: quantity,
+    id: id
+  }
+}
+
+export const useProduct = (product) => {
+  const { name, brand, expiration, price, quantity, id } =product;
+  return {
+    type: c.USE_PRODUCT,
+    name: name,
+    brand: brand,
+    expiration: expiration,
+    price: price,
+    quantity: quantity,
     id: id
   }
 }

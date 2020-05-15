@@ -6,7 +6,7 @@ import EditProductForm from './EditProduct';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as a from './../actions';
-// import { act } from 'react-dom/test-utils';
+
 
 class ProductControl extends React.Component {
 
