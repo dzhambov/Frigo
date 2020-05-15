@@ -13,7 +13,6 @@ class ProductControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterProductList: [],
       selectedProduct: null,
       editing: false
     };
@@ -34,7 +33,8 @@ class ProductControl extends React.Component {
   }
 
   handleAddNewProductToList = (newProduct) => {
-    const newMasterProductList = this.state.masterProductList.concat(newProduct);
+    const { dispatch } = this.props;
+    const { }
     this.setState({
       masterProductList: newMasterProductList,
       formVisibleOnPage:false
@@ -42,7 +42,7 @@ class ProductControl extends React.Component {
   }
 
   handleChangingSelectedProduct = (id) => {
-    const selectedProduct = this.state.masterProductList.filter(product => product.id === id)[0];
+    const selectedProduct = this.props.masterProductList[id];
     this.setState({
       selectedProduct: selectedProduct
     });
@@ -116,7 +116,7 @@ class ProductControl extends React.Component {
     else {
       currentlyVisibleState = 
       <ProductList 
-      productList = { this.state.masterProductList} onProductSelection={this.handleChangingSelectedProduct}
+      productList = { this.props.masterProductList} onProductSelection={this.handleChangingSelectedProduct}
       onUseProduct = {this.handleUseProduct} 
       onRestockProduct = {this.handleRestockProduct}/>;
       buttonText = "ADD PRODUCT";
@@ -130,6 +130,15 @@ class ProductControl extends React.Component {
   }
 }
 
-ProductControl = connect()(ProductControl);
+ProductControl.propTypes = {
+  masterProductList: PropTypes.object
+};
+
+const mapStateToProps = state => {
+  return {
+    masterProductList: state
+  }
+}
+ProductControl = connect(mapStateToProps)(ProductControl);
 
 export default ProductControl;
