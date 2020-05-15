@@ -114,7 +114,9 @@ class ProductControl extends React.Component {
     else {
       currentlyVisibleState = 
       <ProductList 
-      productList = { this.state.masterProductList} onProductSelection={this.handleChangingSelectedProduct} />;
+      productList = { this.state.masterProductList} onProductSelection={this.handleChangingSelectedProduct}
+      onUseProduct = {this.handleUseProduct} 
+      onRestockProduct = {this.handleRestockProduct}/>;
       buttonText = "ADD PRODUCT";
     }
     return (
