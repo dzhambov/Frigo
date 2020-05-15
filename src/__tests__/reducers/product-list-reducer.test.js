@@ -1,4 +1,5 @@
 import productListReducer from '../../reducers/product-list-reducer';
+import * as c from './../../actions/ActionTypes';
 
 describe('productListReducer', () => {
 
@@ -35,7 +36,7 @@ describe('productListReducer', () => {
   test('Should seccessfully add new product data to masterProductList', () => {
     const { name, brand, expiration, price, quantity, id } = productData;
     action = { 
-      type: 'ADD_PRODUCT',
+      type: c.ADD_PRODUCT,
       name: name,
       brand: brand,
       expiration: expiration,
@@ -58,7 +59,7 @@ describe('productListReducer', () => {
 
   test('Should successfully delete a product', () => {
     action = {
-      type: 'DELETE_PRODUCT',
+      type: c.DELETE_PRODUCT,
       id: 1
     };
     expect(productListReducer(currentState, action)).toEqual({

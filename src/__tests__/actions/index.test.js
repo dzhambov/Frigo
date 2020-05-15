@@ -22,7 +22,7 @@ describe('help product actions', () => {
     price: '$5',
     quantity: '1',
     id: 1})).toEqual({
-      type: 'ADD_PRODUCT',
+      type: c.ADD_PRODUCT,
       name: 'Milk',
       brand: 'Organic Farms',
       expiration: '5/15/2020',
