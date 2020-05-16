@@ -30,7 +30,7 @@ function Product(props) {
 
 Product.propTypes = {
   useProduct: PropTypes.func,
-  names: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   brand: PropTypes.string.isRequired,
   expiration: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,

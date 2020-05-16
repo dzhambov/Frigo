@@ -26,6 +26,7 @@ describe('productListReducer', () => {
     expiration: '5/15/2020',
     price: '$5',
     quantity: '1',
+    timeBought: 0,
     id: 1
   }
 
@@ -70,6 +71,27 @@ describe('productListReducer', () => {
       price: '$4',
       quantity: '12',
       id: 2 }
+    });
+  });
+
+  test('Should add a formated wait time to product entry', () => {
+    const { name, brand, expiration, price, quantity, timeBought, id } = productData;
+    action = {
+      type: c.UPDATE_TIME,
+      formattedPassedTime: '1 hour',
+      id: id
+    };
+    expect(productListReducer({ [id] : productData}, action)).toEqual({ 
+      [id] : {
+        name: name,
+        brand: brand,
+        expiration: expiration,
+        price: price,
+        quantity: quantity,
+        timeBought: timeBought,
+        id: id,
+        formattedPassedTime: '1 hour'
+      }  
     });
   });
 });

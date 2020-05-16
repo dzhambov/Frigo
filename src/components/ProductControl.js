@@ -6,7 +6,7 @@ import EditProductForm from './EditProduct';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as a from './../actions';
-
+// import Moment from'moment';
 
 class ProductControl extends React.Component {
 
@@ -16,6 +16,26 @@ class ProductControl extends React.Component {
       selectedProduct: null,
       editing: false
     };
+  }
+
+  componentDidMount() {
+    this.waitTimeUpdateTimer = setInterval(() =>
+      this.updateProductElapsedTime(),
+      60000
+    );
+  }
+
+  componentDidUpdate() {
+    console.log("component updated!");
+  }
+
+  componentWillUnmount(){
+    console.log("component unmounted!");
+    clearInterval(this.waitTimeUpdateTimer);
+  }
+
+  updateProductElapsedTime = () => {
+    console.log("tick");
   }
 
   handleClick = () => {
@@ -55,6 +75,15 @@ class ProductControl extends React.Component {
       masterProductList: [...oldProduct, newProduct],
     });
   }
+
+  // hendleRestockProduct = (item) => {
+  //   const newProductList = this.state.masterProductList.filter(product => product.id !== item)[0];
+  //   const newProductItem = {
+  //     name: item.name,
+  //   }
+  //   const action = newProducList.concat(newProductItem);
+  //   this.props.dispatch(action);
+  // }
 
   handleRestockProduct = (id) => {
     const currentSelectedProduct = this.state.masterProductList.filter(item => item.id ===id)[0];
