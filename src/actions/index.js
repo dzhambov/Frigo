@@ -10,7 +10,7 @@ export const toggleForm = () => ({
 });
 
 export const addProduct = (product) => {
-  const { name, brand, expiration, price, quantity, id } = product;
+  const { name, brand, expiration, price, quantity, id, formattedPassedTime, timeBought } = product;
   return {
     type: c.ADD_PRODUCT,
     name: name,
@@ -18,7 +18,9 @@ export const addProduct = (product) => {
     expiration: expiration,
     price: price,
     quantity: quantity,
-    id: id
+    id: id,
+    formattedPassedTime: formattedPassedTime,
+    timeBought: timeBought
   }
 }
 

@@ -2,6 +2,7 @@ import React from "react";
 import { v4 } from "uuid";
 import { PropTypes } from "prop-types";
 import ReusableForm from "./ReusableForm";
+import Moment from 'moment';
 
 function NewProductForm(props) {
 
@@ -13,7 +14,9 @@ function NewProductForm(props) {
       expiration: event.target.expiration.value,
       price: event.target.price.value,
       quantity: parseInt(event.target.quantity.value),
-      id: v4()
+      id: v4(),
+      timeBought: new Moment(),
+      formattedPassedTime: new Moment().fromNow(true)
     });
   }
 

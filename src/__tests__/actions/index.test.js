@@ -39,4 +39,19 @@ describe('help product actions', () => {
       formattedPassedTime: "an hour"
     });
   });
+
+  it('addProduct should creat ADD_PRODUCT action', () => {
+    expect(actions.addProduct({name: 'Milk',
+    brand: 'Organic Farms', expiration: '5/15/2020',price: '$5', quantity: '1', id: 1, timeBought: 0, formattedPassedTime: 'an hour'})).toEqual({
+      type: c.ADD_PRODUCT,
+      name: 'Milk',
+      brand: 'Organic Farms',
+      expiration: '5/15/2020',
+      price: '$5',
+      quantity: '1',
+      id: 1,
+      timeBought: 0,
+      formattedPassedTime: 'an hour'
+    })
+  })
 });

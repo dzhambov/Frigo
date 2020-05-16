@@ -15,6 +15,7 @@ function ProductList(props) {
         expiration= {product.expiration}
         price= {product.price}
         quantity= {product.quantity}
+        formattedPassedTime= {product.formattedPassedTime}
         id={product.id}
         key={product.id}
         useProduct={props.onUseProduct}

@@ -16,23 +16,21 @@ export default (state = {}, action) => {
           formattedPassedTime: formattedPassedTime
         }
       });
-      // case c.USE_PRODUCT:
-      //   return Object.assign({}, state, {
-      //     [id]: {
-      //       name: name,
-      //       brand: brand,
-      //       expiration: expiration,
-      //       price: price,
-      //       quantity: quantity,
-      //       id: id
-      //     }
-      //   })
+      case c.USE_PRODUCT:
+        return Object.assign({}, state, {
+          [id]: {
+            name: name,
+            brand: brand,
+            expiration: expiration,
+            price: price,
+            quantity: quantity,
+            id: id
+          }
+        })
       case c.DELETE_PRODUCT:
         const newState = { ...state };
         delete newState[id];
         return newState;
-        default:
-          return state;
         
       case c.UPDATE_TIME:
         const newProduct = Object.assign({}, state[id], {formattedPassedTime});

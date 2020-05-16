@@ -12,6 +12,7 @@ function Product(props) {
             <h4><em>Expiration Date:</em> {props.expiration}</h4>
             <h4><em>Price:</em> {props.price}</h4>
             <h5><em>Quantity:</em> {props.quantity}</h5>
+            <h5><em>{props.formattedPassedTime}</em></h5>
           </div>
           <div className="buttons">
             {props.quantity <= 0 && 
@@ -36,7 +37,8 @@ Product.propTypes = {
   price: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired,
   id: PropTypes.string,
-  whenProductClicked: PropTypes.func
+  whenProductClicked: PropTypes.func,
+  formattedPassedTime: PropTypes.string
 }
 
 export default Product;

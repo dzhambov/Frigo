@@ -21,21 +21,21 @@ class ProductControl extends React.Component {
   componentDidMount() {
     this.waitTimeUpdateTimer = setInterval(() =>
       this.updateProductElapsedTime(),
-      60000
+      6000
     );
   }
 
-  componentDidUpdate() {
-    console.log("component updated!");
-  }
-
   componentWillUnmount(){
-    console.log("component unmounted!");
     clearInterval(this.waitTimeUpdateTimer);
   }
 
   updateProductElapsedTime = () => {
-    console.log("tick");
+    const { dispatch } = this.props;
+    Object.values(this.props.masterProductList).forEach(product => {
+      const newFormattedPassedTime = product.timeBought.fromNow(true);
+      const action = a.updateTime(product.id, newFormattedPassedTime);
+      dispatch(action);
+    });
   }
 
   handleClick = () => {
