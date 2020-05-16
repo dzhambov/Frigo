@@ -13,7 +13,9 @@ function EditProductForm(props) {
       expiration: event.target.expiration.value,
       quantity: parseInt(event.target.quantity.value),
       price: event.target.price.value,
-      id: product.id
+      id: product.id,
+      timeBought: product.timeBought,
+      formattedPassedTime: product.formattedPassedTime
     });
   }
 
