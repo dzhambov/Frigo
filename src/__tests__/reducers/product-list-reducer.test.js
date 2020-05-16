@@ -1,5 +1,7 @@
 import productListReducer from '../../reducers/product-list-reducer';
 import * as c from './../../actions/ActionTypes';
+import Moment from 'moment';
+import { act } from 'react-dom/test-utils';
 
 describe('productListReducer', () => {
 
@@ -92,6 +94,33 @@ describe('productListReducer', () => {
         id: id,
         formattedPassedTime: '1 hour'
       }  
+    });
+  });
+
+  test('Should successfully add a product to the product list that includes Moment-formatted passed time', () => {
+    const { name, brand, expiration, price, quantity, timeBought,id } =productData;
+    action = {
+      type: c.ADD_PRODUCT,
+      name: name,
+      brand: brand,
+      expiration: expiration,
+      price: price,
+      quantity: quantity,
+      timeBought: timeBought,
+      id: id,
+      formattedPassedTime: new Moment().fromNow(true)
+    };
+    expect(productListReducer({}, action)).toEqual({
+      [id] : {
+        name: name,
+        brand: brand,
+        expiration: expiration,
+        price: price,
+        quantity: quantity,
+        timeBought: timeBought,
+        id: id,
+        formattedPassedTime: 'an hour'
+      }
     });
   });
 });

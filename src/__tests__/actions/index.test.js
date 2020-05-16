@@ -31,4 +31,12 @@ describe('help product actions', () => {
       id: 1
     });
   });
+
+  it('updateTime should create UPDATE_TIME action', () => {
+    expect(actions.updateTime(1, "an hour")).toEqual({
+      type: c.UPDATE_TIME,
+      id: 1,
+      formattedPassedTime: "an hour"
+    });
+  });
 });

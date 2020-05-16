@@ -34,3 +34,9 @@ export const useProduct = (product) => {
     id: id
   }
 }
+
+export const updateTime = (id, formattedPassedTime) => ({
+  type: c.UPDATE_TIME,
+  id: id,
+  formattedPassedTime: formattedPassedTime
+});
