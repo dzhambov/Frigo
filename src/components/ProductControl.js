@@ -21,7 +21,7 @@ class ProductControl extends React.Component {
   componentDidMount() {
     this.waitTimeUpdateTimer = setInterval(() =>
       this.updateProductElapsedTime(),
-      6000
+      3600000
     );
   }
 
