@@ -113,9 +113,7 @@ class ProductControl extends React.Component {
   }
   
   handleDeletingProduct = (id) => {
-   const  { dispatch } = this.props;
-   const action = a.deleteProduct(id);
-   dispatch(action);
+   this.props.firestore.delete({collection: 'products', doc: id});
    this.setState({selectedProduct: null});
   }
 

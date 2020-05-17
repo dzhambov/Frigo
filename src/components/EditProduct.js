@@ -14,10 +14,7 @@ function EditProductForm(props) {
       brand: event.target.brand.value,
       expiration: event.target.expiration.value,
       quantity: parseInt(event.target.quantity.value),
-      price: event.target.price.value,
-      // id: product.id,
-      // timeBought: product.timeBought,
-      // formattedPassedTime: product.formattedPassedTime
+      price: event.target.price.value
     }
     return firestore.update({collection: 'products', doc: product.id}, propertiesToUdate)
   }
