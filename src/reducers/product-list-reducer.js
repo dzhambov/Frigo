@@ -1,21 +1,20 @@
 import * as c from './../actions/ActionTypes';
 
 export default (state = {}, action) => {
-  const { name, brand, expiration, price, quantity, id, formattedPassedTime, timeBought } = action;
+  const { name, brand, expiration, price, quantity, id, formattedPassedTime } = action;
   switch(action.type) {
-    case c.ADD_PRODUCT:
-      return Object.assign({}, state, {
-        [id]: {
-          name: name,
-          brand: brand,
-          expiration: expiration,
-          price: price,
-          quantity: quantity,
-          id: id,
-          timeBought: timeBought,
-          formattedPassedTime: formattedPassedTime
-        }
-      });
+    // case c.ADD_PRODUCT:
+    //   return Object.assign({}, state, {
+    //     [id]: {
+    //       name: name,
+    //       brand: brand,
+    //       expiration: expiration,
+    //       price: price,
+    //       quantity: quantity,
+    //       id: id,
+    //       formattedPassedTime: formattedPassedTime
+    //     }
+    //   });
       case c.USE_PRODUCT:
         return Object.assign({}, state, {
           [id]: {

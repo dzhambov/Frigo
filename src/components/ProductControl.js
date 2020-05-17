@@ -51,12 +51,10 @@ class ProductControl extends React.Component {
     }
   }
 
-  handleAddNewProductToList = (newProduct) => {
+  handleAddNewProductToList = () => {
     const { dispatch } = this.props;
-    const action = a.addProduct(newProduct);
+    const action = a.toggleForm();
     dispatch(action);
-    const action2 = a.toggleForm();
-    dispatch(action2);
   }
 
   handleChangingSelectedProduct = (id) => {
@@ -99,15 +97,15 @@ class ProductControl extends React.Component {
     this.setState({editing: true});
   }
   
-  handleEditingProductInList = (productToEdit) => {
-    const { dispatch } = this.props;
-    const action = a.addProduct(productToEdit);
-    dispatch(action);
-    this.setState({
-      editing: false,
-      selectedProduct: null
-    });
-  }
+  // handleEditingProductInList = (productToEdit) => {
+  //   const { dispatch } = this.props;
+  //   const action = a.addProduct(productToEdit);
+  //   dispatch(action);
+  //   this.setState({
+  //     editing: false,
+  //     selectedProduct: null
+  //   });
+  // }
   
   handleDeletingProduct = (id) => {
    const  { dispatch } = this.props;

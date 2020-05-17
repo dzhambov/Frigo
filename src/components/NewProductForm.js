@@ -1,8 +1,6 @@
 import React from "react";
-// import { v4 } from "uuid";
 import { PropTypes } from "prop-types";
 import ReusableForm from "./ReusableForm";
-// import Moment from 'moment';
 import { useFirestore } from 'react-redux-firebase';
 
 function NewProductForm(props) {
@@ -19,9 +17,7 @@ function NewProductForm(props) {
         expiration: event.target.expiration.value,
         price: event.target.price.value,
         quantity: parseInt(event.target.quantity.value),
-        // id: v4(),
         timeBought: firestore.FieldValue.serverTimestamp()
-        // formattedPassedTime: new Moment().fromNow(true)
       }
     );
   }

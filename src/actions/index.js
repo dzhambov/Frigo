@@ -9,20 +9,20 @@ export const toggleForm = () => ({
   type: c.TOGGLE_FORM
 });
 
-export const addProduct = (product) => {
-  const { name, brand, expiration, price, quantity, id, formattedPassedTime, timeBought } = product;
-  return {
-    type: c.ADD_PRODUCT,
-    name: name,
-    brand: brand,
-    expiration: expiration,
-    price: price,
-    quantity: quantity,
-    id: id,
-    formattedPassedTime: formattedPassedTime,
-    timeBought: timeBought
-  }
-}
+// export const addProduct = (product) => {
+//   const { name, brand, expiration, price, quantity, id, formattedPassedTime, timeBought } = product;
+//   return {
+//     type: c.ADD_PRODUCT,
+//     name: name,
+//     brand: brand,
+//     expiration: expiration,
+//     price: price,
+//     quantity: quantity,
+//     id: id,
+//     formattedPassedTime: formattedPassedTime,
+//     timeBought: timeBought
+//   }
+// }
 
 export const useProduct = (product) => {
   const { name, brand, expiration, price, quantity, id } =product;
