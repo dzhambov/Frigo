@@ -10,7 +10,7 @@ function NewProductForm(props) {
   function addProductToFirestore(event) {
     event.preventDefault();
     props.onNewProductCreation();
-    return firestore.collection('product').add(
+    return firestore.collection('products').add(
       {
         name: event.target.name.value,
         brand: event.target.brand.value,

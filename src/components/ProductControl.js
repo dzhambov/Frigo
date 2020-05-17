@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as a from './../actions';
 // import Moment from'moment';
+import { withFirestore } from 'react-redux-firebase';
 
 class ProductControl extends React.Component {
 
@@ -58,9 +59,16 @@ class ProductControl extends React.Component {
   }
 
   handleChangingSelectedProduct = (id) => {
-    const selectedProduct = this.props.masterProductList[id];
-    this.setState({
-      selectedProduct: selectedProduct
+    this.props.firestore.get({collection: 'products', doc: id}).then((product) => {
+      const firestoreProduct = {
+        name: product.get("name"),
+        brand: product.get("brand"),
+        expiration: product.get("expiration"),
+        price: product.get("price"),
+        quantity: product.get("quantity"),
+        id: product.id    
+      }
+      this.setState({selectedProduct: firestoreProduct});
     });
   }
 
@@ -97,15 +105,12 @@ class ProductControl extends React.Component {
     this.setState({editing: true});
   }
   
-  // handleEditingProductInList = (productToEdit) => {
-  //   const { dispatch } = this.props;
-  //   const action = a.addProduct(productToEdit);
-  //   dispatch(action);
-  //   this.setState({
-  //     editing: false,
-  //     selectedProduct: null
-  //   });
-  // }
+  handleEditingProductInList = () => {
+    this.setState({
+      editing: false,
+      selectedProduct: null
+    });
+  }
   
   handleDeletingProduct = (id) => {
    const  { dispatch } = this.props;
@@ -160,10 +165,10 @@ ProductControl.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    masterProductList: state.masterProductList,
+    // masterProductList: state.masterProductList,
     formVisibleOnPage: state.formVisibleOnPage
   }
 }
 ProductControl = connect(mapStateToProps)(ProductControl);
 
-export default ProductControl;
+export default withFirestore(ProductControl);
