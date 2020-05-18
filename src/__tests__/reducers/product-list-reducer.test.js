@@ -1,7 +1,6 @@
 import productListReducer from '../../reducers/product-list-reducer';
 import * as c from './../../actions/ActionTypes';
-// import Moment from 'moment';
-// import { act } from 'react-dom/test-utils';
+import Moment from 'moment';
 
 describe('productListReducer', () => {
 
@@ -35,30 +34,6 @@ describe('productListReducer', () => {
   test('Should return default state if there is no action type passed into the reducer', () => {
     expect(productListReducer({}, { type: null })).toEqual({});
   });
-
-  // test('Should seccessfully add new product data to masterProductList', () => {
-  //   const { name, brand, expiration, price, quantity, id } = productData;
-  //   action = { 
-  //     type: c.ADD_PRODUCT,
-  //     name: name,
-  //     brand: brand,
-  //     expiration: expiration,
-  //     price: price,
-  //     quantity: quantity,
-  //     id: id
-  //   };
-
-  //   expect(productListReducer({}, action)).toEqual({
-  //     [id]: {
-  //       name: name,
-  //       brand: brand,
-  //       expiration: expiration,
-  //       price: price,
-  //       quantity: quantity,
-  //       id: id
-  //     }
-  //   });
-  // });
 
   test('Should successfully delete a product', () => {
     action = {

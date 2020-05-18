@@ -6,8 +6,6 @@ import EditProductForm from './EditProduct';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as a from './../actions';
-// import Moment from'moment';
-// import { withFirestore } from 'react-redux-firebase';
 import { withFirestore, isLoaded} from 'react-redux-firebase';
 
 class ProductControl extends React.Component {
@@ -20,25 +18,25 @@ class ProductControl extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.waitTimeUpdateTimer = setInterval(() =>
-      this.updateProductElapsedTime(),
-      3600000
-    );
-  }
+  // componentDidMount() {
+  //   this.waitTimeUpdateTimer = setInterval(() =>
+  //     this.updateProductElapsedTime(),
+  //     3600000
+  //   );
+  // }
 
-  componentWillUnmount(){
-    clearInterval(this.waitTimeUpdateTimer);
-  }
+  // componentWillUnmount(){
+  //   clearInterval(this.waitTimeUpdateTimer);
+  // }
 
-  updateProductElapsedTime = () => {
-    const { dispatch } = this.props;
-    Object.values(this.props.masterProductList).forEach(product => {
-      const newFormattedPassedTime = product.timeBought.fromNow(true);
-      const action = a.updateTime(product.id, newFormattedPassedTime);
-      dispatch(action);
-    });
-  }
+  // updateProductElapsedTime = () => {
+  //   const { dispatch } = this.props;
+  //   Object.values(this.props.masterProductList).forEach(product => {
+  //     const newFormattedPassedTime = product.timeBought.fromNow(true);
+  //     const action = a.updateTime(product.id, newFormattedPassedTime);
+  //     dispatch(action);
+  //   });
+  // }
 
   handleClick = () => {
     if (this.state.selectedProduct !== null) {

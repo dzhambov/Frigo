@@ -7,7 +7,7 @@ function Signin() {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    firebase.auth(). createUserWithEmailAndPassword(email, password).then(function() {
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {
       console.log("successfully signed up!");
     }).catch(function(error) {
       console.log(error.message);

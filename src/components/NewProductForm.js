@@ -3,6 +3,7 @@ import { PropTypes } from "prop-types";
 import ReusableForm from "./ReusableForm";
 import { useFirestore } from 'react-redux-firebase';
 
+
 function NewProductForm(props) {
 
   const firestore = useFirestore();
