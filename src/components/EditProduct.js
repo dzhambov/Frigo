@@ -1,22 +1,22 @@
 import React from 'react';
 import ReusableForm from './ReusableForm';
 import PropTypes from 'prop-types';
+import { useFirestore } from 'react-redux-firebase';
 
 function EditProductForm(props) {
+  const firestore = useFirestore();
   const { product } = props;
-
   function handleEditProductFormSubmission(event) {
     event.preventDefault();
-    props.onEditProduct({
+    props.onEditProduct();
+    const propertiesToUdate = {
       name: event.target.name.value,
       brand: event.target.brand.value,
       expiration: event.target.expiration.value,
       quantity: parseInt(event.target.quantity.value),
-      price: event.target.price.value,
-      id: product.id,
-      timeBought: product.timeBought,
-      formattedPassedTime: product.formattedPassedTime
-    });
+      price: event.target.price.value
+    }
+    return firestore.update({collection: 'products', doc: product.id}, propertiesToUdate)
   }
 
   return (

@@ -23,19 +23,19 @@ describe('rootReducer', () => {
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, { type:null }));
   });
 
-  test('Check that initial state of productListReducer matches root reducer', () => { 
-    const action = {
-      type: c.ADD_PORDUCT,
-      name: 'Milk',
-      brand: 'Organic Farm',
-      expiration: '5/15/2020',
-      price: '$5',
-      quantity: '1',
-      id: 1
-    }
-    store.dispatch(action);
-    expect(store.getState().masterProductList).toEqual(productListReducer(undefined, action));
-  });
+  // test('Check that initial state of productListReducer matches root reducer', () => { 
+  //   const action = {
+  //     type: c.ADD_PORDUCT,
+  //     name: 'Milk',
+  //     brand: 'Organic Farm',
+  //     expiration: '5/15/2020',
+  //     price: '$5',
+  //     quantity: '1',
+  //     id: 1
+  //   }
+  //   store.dispatch(action);
+  //   expect(store.getState().masterProductList).toEqual(productListReducer(undefined, action));
+  // });
 
   test('Check that initial state of formVisibleReducer matches root reducer', () => {
     const action = {

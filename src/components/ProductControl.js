@@ -6,7 +6,7 @@ import EditProductForm from './EditProduct';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as a from './../actions';
-// import Moment from'moment';
+import { withFirestore, isLoaded} from 'react-redux-firebase';
 
 class ProductControl extends React.Component {
 
@@ -18,25 +18,25 @@ class ProductControl extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.waitTimeUpdateTimer = setInterval(() =>
-      this.updateProductElapsedTime(),
-      6000
-    );
-  }
+  // componentDidMount() {
+  //   this.waitTimeUpdateTimer = setInterval(() =>
+  //     this.updateProductElapsedTime(),
+  //     3600000
+  //   );
+  // }
 
-  componentWillUnmount(){
-    clearInterval(this.waitTimeUpdateTimer);
-  }
+  // componentWillUnmount(){
+  //   clearInterval(this.waitTimeUpdateTimer);
+  // }
 
-  updateProductElapsedTime = () => {
-    const { dispatch } = this.props;
-    Object.values(this.props.masterProductList).forEach(product => {
-      const newFormattedPassedTime = product.timeBought.fromNow(true);
-      const action = a.updateTime(product.id, newFormattedPassedTime);
-      dispatch(action);
-    });
-  }
+  // updateProductElapsedTime = () => {
+  //   const { dispatch } = this.props;
+  //   Object.values(this.props.masterProductList).forEach(product => {
+  //     const newFormattedPassedTime = product.timeBought.fromNow(true);
+  //     const action = a.updateTime(product.id, newFormattedPassedTime);
+  //     dispatch(action);
+  //   });
+  // }
 
   handleClick = () => {
     if (this.state.selectedProduct !== null) {
@@ -51,18 +51,23 @@ class ProductControl extends React.Component {
     }
   }
 
-  handleAddNewProductToList = (newProduct) => {
+  handleAddNewProductToList = () => {
     const { dispatch } = this.props;
-    const action = a.addProduct(newProduct);
+    const action = a.toggleForm();
     dispatch(action);
-    const action2 = a.toggleForm();
-    dispatch(action2);
   }
 
   handleChangingSelectedProduct = (id) => {
-    const selectedProduct = this.props.masterProductList[id];
-    this.setState({
-      selectedProduct: selectedProduct
+    this.props.firestore.get({collection: 'products', doc: id}).then((product) => {
+      const firestoreProduct = {
+        name: product.get("name"),
+        brand: product.get("brand"),
+        expiration: product.get("expiration"),
+        price: product.get("price"),
+        quantity: product.get("quantity"),
+        id: product.id    
+      }
+      this.setState({selectedProduct: firestoreProduct});
     });
   }
 
@@ -99,10 +104,7 @@ class ProductControl extends React.Component {
     this.setState({editing: true});
   }
   
-  handleEditingProductInList = (productToEdit) => {
-    const { dispatch } = this.props;
-    const action = a.addProduct(productToEdit);
-    dispatch(action);
+  handleEditingProductInList = () => {
     this.setState({
       editing: false,
       selectedProduct: null
@@ -110,13 +112,28 @@ class ProductControl extends React.Component {
   }
   
   handleDeletingProduct = (id) => {
-   const  { dispatch } = this.props;
-   const action = a.deleteProduct(id);
-   dispatch(action);
+   this.props.firestore.delete({collection: 'products', doc: id});
    this.setState({selectedProduct: null});
   }
 
   render() {
+    const auth = this.props.firebase.auth();
+    if (!isLoaded(auth)) {
+      return (
+        <React.Fragment>
+          <h1>Loading ...</h1>
+        </React.Fragment>
+      )
+    }
+    if ((isLoaded(auth)) && (auth.currentUser == null)) {
+      return (
+        <React.Fragment>
+          <h1>You must be signed in to access the list.</h1>
+        </React.Fragment>
+      )
+    }
+    if ((isLoaded(auth)) && (auth.currentUser!== null)) {
+
     let currentlyVisibleState = null;
     let buttonText = null;
 
@@ -155,6 +172,7 @@ class ProductControl extends React.Component {
     );
   }
 }
+}
 
 ProductControl.propTypes = {
   masterProductList: PropTypes.object
@@ -162,10 +180,10 @@ ProductControl.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    masterProductList: state.masterProductList,
+    // masterProductList: state.masterProductList,
     formVisibleOnPage: state.formVisibleOnPage
   }
 }
 ProductControl = connect(mapStateToProps)(ProductControl);
 
-export default ProductControl;
+export default withFirestore(ProductControl);
