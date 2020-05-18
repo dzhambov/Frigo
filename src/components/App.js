@@ -17,9 +17,9 @@ function App() {
         <Route path="/">
           <ProductControl />
         </Route>
-        <React.Fragment>
+        {/* <React.Fragment> */}
           <Recipes />
-        </React.Fragment>
+        {/* </React.Fragment> */}
       </Switch>
     </Router>
   );

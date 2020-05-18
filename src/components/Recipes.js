@@ -33,7 +33,34 @@ class Recipes extends React.Component {
     dispatch(this.makeApiCall());
   }
   render() {
-    return 
+    const { error, isLoaded, recipes } = this.state;
+    if(error) {
+      return<React.Fragment>Error: {error.message}</React.Fragment>;
+    } else if (!isLoaded) {
+        return <React.Fragment>Loading ...</React.Fragment>;
+    } else {
+        return (
+          <React.Fragment>
+            <div className="recipe">
+              <form className="search-form">
+                <input className="search-bar" type="text"/>
+                <button className="search-button" type="submit">Search</button>
+              </form>
+            </div>
+            <h1>Recipes</h1>
+            <ul>
+              {recipes.map((recipe, index) =>
+              <li key={index}>
+                <h3>{recipe.title}</h3>
+                <h3>{recipe.calories}</h3>
+                <h3>{recipe.health}</h3>
+              </li>
+              )}
+            </ul>
+          </React.Fragment>
+        ) 
+
+    }
   }
 }
 
