@@ -2,6 +2,7 @@ import React from 'react';
 import firebase from 'firebase/app';
 
 function Signin() {
+
   function doSignUp(event) {
     event.preventDefault();
     const email = event.target.email.value;
@@ -23,12 +24,21 @@ function Signin() {
       console.log(error.message);
     });
   }
+
+  function doSignOut() {
+    firebase.auth().signOut().then(function() {
+      console.log("Successfully signed out!");
+    }).catch(function(error) {
+      console.log(error.message);
+    });
+  }
+
   return (
     <React.Fragment>
       <h1>Sign Up</h1>
       <form onSubmit={doSignUp}>
         <input
-          type='password'
+          type='text'
           name='email'
           placeholder='email'/>
         <input
@@ -40,13 +50,13 @@ function Signin() {
       <h1>Sign In</h1>
       <form onSubmit={doSignIn}>
         <input
-        type='text'
-        name='signinEmail'
-        placeholder='email' />
+          type='text'
+          name='signinEmail'
+          placeholder='email' />
         <input
-        type='password'
-        name='signinPassword'
-        placeholder='Password'/>
+          type='password'
+          name='signinPassword'
+          placeholder='Password'/>
         <button type='submit'>Sign In</button>
       </form>
       <h1>Sign Out</h1>

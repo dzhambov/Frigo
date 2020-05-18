@@ -7,7 +7,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as a from './../actions';
 // import Moment from'moment';
-import { withFirestore } from 'react-redux-firebase';
+// import { withFirestore } from 'react-redux-firebase';
+import { withFirestore, isLoaded} from 'react-redux-firebase';
 
 class ProductControl extends React.Component {
 
@@ -118,6 +119,23 @@ class ProductControl extends React.Component {
   }
 
   render() {
+    const auth = this.props.firebase.auth();
+    if (!isLoaded(auth)) {
+      return (
+        <React.Fragment>
+          <h1>Loading ...</h1>
+        </React.Fragment>
+      )
+    }
+    if ((isLoaded(auth)) && (auth.currentUser == null)) {
+      return (
+        <React.Fragment>
+          <h1>You must be signed in to access the list.</h1>
+        </React.Fragment>
+      )
+    }
+    if ((isLoaded(auth)) && (auth.currentUser!== null)) {
+
     let currentlyVisibleState = null;
     let buttonText = null;
 
@@ -155,6 +173,7 @@ class ProductControl extends React.Component {
       </React.Fragment>
     );
   }
+}
 }
 
 ProductControl.propTypes = {
