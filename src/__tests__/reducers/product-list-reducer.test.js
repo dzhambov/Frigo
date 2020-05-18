@@ -1,6 +1,6 @@
 import productListReducer from '../../reducers/product-list-reducer';
 import * as c from './../../actions/ActionTypes';
-import Moment from 'moment';
+
 
 describe('productListReducer', () => {
 
