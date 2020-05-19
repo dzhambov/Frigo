@@ -17,7 +17,12 @@ export default (state = initialState, action) => {
         isLoading: false,
         recipes: action.recipes
       });
+    case c.GET_RECIPES_FAILURE:
+      return Object.assign({}, state, {
+        isLoading: false,
+        error: action.error
+      });
     default:
       return state;
-  }
+    }
 };

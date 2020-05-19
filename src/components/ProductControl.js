@@ -128,7 +128,7 @@ class ProductControl extends React.Component {
     if ((isLoaded(auth)) && (auth.currentUser == null)) {
       return (
         <React.Fragment>
-          <h1>You must be signed in to access the list.</h1>
+          <h1>You must be signed in to access the recipes.</h1>
         </React.Fragment>
       )
     }

@@ -1,9 +1,9 @@
 import recipesReducer from '../../reducers/recipes-reducer';
 import * as c from './../../actions/ActionTypes';
 
-let action;
-
 describe('recipesReducer', () => {
+  
+  let action;
 
   const defaultState = {
     isLoading: false,
@@ -44,10 +44,25 @@ describe('recipesReducer', () => {
       type: c.GET_RECIPES_SUCCESS,
       recipes
     };
+    
     expect(recipesReducer(loadingState, action)).toEqual({
       isLoading: false,
       recipes: "Chicken Soup",
       error: null
+    });
+  });
+
+  test('failing to get recipes should change isLoading to false and add an error message', () => {
+    const error = "An error";
+    action = {
+      type: c.GET_RECIPES_FAILURE,
+      error
+    };
+
+    expect(recipesReducer(loadingState, action)).toEqual({
+        isLoading: false,
+        recipes: [],
+        error: "An error"
     });
   });
 });

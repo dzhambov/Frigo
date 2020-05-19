@@ -8,8 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <Header />
-      
+      <Header />   
       <Switch>
         <Route path="/signin">
           <Signin />
