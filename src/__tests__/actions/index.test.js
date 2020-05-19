@@ -15,23 +15,6 @@ describe('help product actions', () => {
     });
   });
 
-  // it('addProduct should create ADD_PRODUCT action', () => {
-  //   expect(actions.addProduct({name: 'Milk',
-  //   brand: 'Organic Farms',
-  //   expiration: '5/15/2020',
-  //   price: '$5',
-  //   quantity: '1',
-  //   id: 1})).toEqual({
-  //     type: c.ADD_PRODUCT,
-  //     name: 'Milk',
-  //     brand: 'Organic Farms',
-  //     expiration: '5/15/2020',
-  //     price: '$5',
-  //     quantity: '1',
-  //     id: 1
-  //   });
-  // });
-
   it('updateTime should create UPDATE_TIME action', () => {
     expect(actions.updateTime(1, "an hour")).toEqual({
       type: c.UPDATE_TIME,
@@ -40,20 +23,25 @@ describe('help product actions', () => {
     });
   });
 
-  
+  it('requestRecipes should create REQUEST_RECIPES action', () => {
+    expect(actions.requestRecipes()).toEqual({
+      type: c.REQUEST_RECIPES
+    });
+  });
 
-  // it('addProduct should creat ADD_PRODUCT action', () => {
-  //   expect(actions.addProduct({name: 'Milk',
-  //   brand: 'Organic Farms', expiration: '5/15/2020',price: '$5', quantity: '1', id: 1, timeBought: 0, formattedPassedTime: 'an hour'})).toEqual({
-  //     type: c.ADD_PRODUCT,
-  //     name: 'Milk',
-  //     brand: 'Organic Farms',
-  //     expiration: '5/15/2020',
-  //     price: '$5',
-  //     quantity: '1',
-  //     id: 1,
-  //     timeBought: 0,
-  //     formattedPassedTime: 'an hour'
-  //   })
-  // })
+  it('getRecipesSuccess should create GET_RECIPES_SUCCESS action', () => {
+    const recipes = "Chicken Soup";
+    expect(actions.getRecipesSuccess(recipes)).toEqual({
+      type: c.GET_RECIPES_SUCCESS,
+      recipes
+    });
+  });
+
+  it('getRecipesFailure should create GET_RECIPES_FAILURE action', () => {
+    const error = "An error";
+    expect(actions.getRecipesFailure(error)).toEqual({
+      type: c.GET_RECIPES_FAILURE,
+      error
+    });
+  });
 });
