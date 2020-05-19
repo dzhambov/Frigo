@@ -30,28 +30,14 @@ export const makeApiCall = () => {
       .then(response => response.json())
       .then(
         (jsonifiedResponse) => {
-          dispatch(getRecipesSuccess(jsonifiedResponse.results));
+          console.log(jsonifiedResponse);
+          dispatch(getRecipesSuccess(jsonifiedResponse));
         })
       .catch((error) => {
         dispatch(getRecipesFailure(error));
       });
   }
 }
-
-// export const addProduct = (product) => {
-//   const { name, brand, expiration, price, quantity, id, formattedPassedTime, timeBought } = product;
-//   return {
-//     type: c.ADD_PRODUCT,
-//     name: name,
-//     brand: brand,
-//     expiration: expiration,
-//     price: price,
-//     quantity: quantity,
-//     id: id,
-//     formattedPassedTime: formattedPassedTime,
-//     timeBought: timeBought
-//   }
-// }
 
 export const useProduct = (product) => {
   const { name, brand, expiration, price, quantity, id } =product;
