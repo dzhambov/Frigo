@@ -18,26 +18,6 @@ class ProductControl extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.waitTimeUpdateTimer = setInterval(() =>
-  //     this.updateProductElapsedTime(),
-  //     3600000
-  //   );
-  // }
-
-  // componentWillUnmount(){
-  //   clearInterval(this.waitTimeUpdateTimer);
-  // }
-
-  // updateProductElapsedTime = () => {
-  //   const { dispatch } = this.props;
-  //   Object.values(this.props.masterProductList).forEach(product => {
-  //     const newFormattedPassedTime = product.timeBought.fromNow(true);
-  //     const action = a.updateTime(product.id, newFormattedPassedTime);
-  //     dispatch(action);
-  //   });
-  // }
-
   handleClick = () => {
     if (this.state.selectedProduct !== null) {
       this.setState({

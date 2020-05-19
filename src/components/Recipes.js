@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { makeApiCall } from './../actions';
 
 class Recipes extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
 
   componentDidMount() {
     const { dispatch } = this.props;
@@ -29,13 +26,14 @@ class Recipes extends React.Component {
           </div>
           <h1>Recipes</h1>
           <ul>
-            {recipes.map((recipe, index) =>
+            {recipes.map((recipe, index) => (
             <li key={index}>
-              <h3>{recipe.title}</h3>
-              <h3>{recipe.calories}</h3>
-              <h3>{recipe.health}</h3>
+              <h3>Title:{recipe.recipe.lable}</h3>
+              <h3>Calories:{recipe.recipe.calories}</h3>
+              <h3>Image:{recipe.recipe.healthLabels}</h3>
+              <h3>Image:{recipe.recipe.image}</h3>
             </li>
-            )}
+            ))}
           </ul>
         </React.Fragment>
       ) 

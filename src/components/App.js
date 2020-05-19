@@ -14,8 +14,8 @@ function App() {
           <Signin />
         </Route>
         <Route path="/">
-          <ProductControl />
           <Recipes />
+          <ProductControl />
         </Route>   
       </Switch>
     </Router>
