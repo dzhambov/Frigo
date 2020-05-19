@@ -12,6 +12,11 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         isLoading: true
       });
+    case c.GET_RECIPES_SUCCESS:
+      return Object.assign({}, state, {
+        isLoading: false,
+        recipes: action.recipes
+      });
     default:
       return state;
   }
