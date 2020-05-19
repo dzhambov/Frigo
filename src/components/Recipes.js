@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { makeApiCall } from './../actions';
 
 class Recipes extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentDidMount() {
     const { dispatch } = this.props;
