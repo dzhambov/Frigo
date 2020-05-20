@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { makeApiCall } from './../actions';
 
 class Recipes extends React.Component {
-
+  
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(makeApiCall());
