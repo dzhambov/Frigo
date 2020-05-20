@@ -15,8 +15,7 @@ import thunkMiddleware from 'redux-thunk';
 import middlewareLogger from './middleware/middleware-logger';
 
 const store = createStore(
-  rootReducer, applyMiddleware(thunkMiddleware, middlewareLogger)
-  );
+  rootReducer, applyMiddleware(thunkMiddleware, middlewareLogger));
 
   const rrfProps = {
     firebase,

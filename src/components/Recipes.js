@@ -13,12 +13,12 @@ class Recipes extends React.Component {
     const { error, isLoaded, recipes } = this.props;
     if(error) {
       return<React.Fragment>Error: {error.message}</React.Fragment>;
-    } else if (isLoaded) {
+    } else if (!isLoaded) {
         return <React.Fragment>Loading ...</React.Fragment>;
     } else {
       return (
         <React.Fragment>
-          <div className="recipe">
+          <div className="RecipeSearch">
             <form className="search-form">
               <input className="search-bar" type="text"/>
               <button className="search-button" type="submit">Search</button>
@@ -26,13 +26,14 @@ class Recipes extends React.Component {
           </div>
           <h1>Recipes</h1>
           <ul>
-            {/* {recipes.map((recipe, index) =>
+            {recipes.map((recipe, index) => (
             <li key={index}>
-              <h3>{recipe.title}</h3>
-              <h3>{recipe.calories}</h3>
-              <h3>{recipe.health}</h3>
+              <h3>Title:{recipe.recipe.lable}</h3>
+              <h3>Calories:{recipe.recipe.calories}</h3>
+              <h3>Image:{recipe.recipe.healthLabels}</h3>
+              <h3>Image:{recipe.recipe.image}</h3>
             </li>
-            )} */}
+            ))}
           </ul>
         </React.Fragment>
       ) 

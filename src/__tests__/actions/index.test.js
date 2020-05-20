@@ -15,14 +15,6 @@ describe('help product actions', () => {
     });
   });
 
-  it('updateTime should create UPDATE_TIME action', () => {
-    expect(actions.updateTime(1, "an hour")).toEqual({
-      type: c.UPDATE_TIME,
-      id: 1,
-      formattedPassedTime: "an hour"
-    });
-  });
-
   it('requestRecipes should create REQUEST_RECIPES action', () => {
     expect(actions.requestRecipes()).toEqual({
       type: c.REQUEST_RECIPES
