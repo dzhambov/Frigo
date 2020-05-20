@@ -26,14 +26,14 @@ class Recipes extends React.Component {
           </div>
           <h1>Recipes</h1>
           <ul>
-            {/* {recipes.map((recipe, index) => 
+            {recipes.map((recipe, index) => 
             <li key={index}>
               <h3>Title:{recipe.recipe.lable}</h3>
               <h3>Calories:{recipe.recipe.calories}</h3>
               <h3>Health Label:{recipe.recipe.healthLabels}</h3>
               <h3>Image:{recipe.recipe.image}</h3>
             </li>
-            )} */}
+            )}
           </ul>
         </React.Fragment>
       ) 
@@ -43,9 +43,9 @@ class Recipes extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    recipes: state.recipes,
-    isLoading: state.isLoading,
-    error: state.error
+    recipes: state.recipesApi.recipes,
+    isLoading: state.recipesApi.isLoading,
+    error: state.recipesApi.error
   }
 } 
 export default connect(mapStateToProps)(Recipes)
