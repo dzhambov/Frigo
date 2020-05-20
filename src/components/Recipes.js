@@ -18,7 +18,7 @@ class Recipes extends React.Component {
     } else {
       return (
         <React.Fragment>
-          <div className="recipe">
+          <div className="RecipeSearch">
             <form className="search-form">
               <input className="search-bar" type="text"/>
               <button className="search-button" type="submit">Search</button>

@@ -10,8 +10,8 @@ function Product(props) {
             <h2><em onClick={props.whenProductClicked}>{props.name}</em></h2>
             <h3><em>{props.brand}</em></h3>
             <h5><em>Expiration Date:</em> {props.expiration}</h5>
-            <h5><em>Price:</em>{props.price}<em>Quantity:</em> {props.quantity}</h5>
-            <h5></h5>
+            <h5><em>Price:</em>{props.price}</h5>
+            <h5><em>Quantity:</em> {props.quantity}</h5>
           </div>
           <div className="ProductButtons">
             {props.quantity <= 0 && 

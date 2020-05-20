@@ -31,7 +31,7 @@ export const makeApiCall = () => {
       .then(
         (jsonifiedResponse) => {
           console.log(jsonifiedResponse);
-          dispatch(getRecipesSuccess(jsonifiedResponse.hits));
+          dispatch(getRecipesSuccess(jsonifiedResponse.hits.recipes));
         })
       .catch((error) => {
         dispatch(getRecipesFailure(error));
