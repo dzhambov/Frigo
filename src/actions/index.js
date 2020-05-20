@@ -25,13 +25,14 @@ export const getRecipesFailure = (error) => ({
 
 export const makeApiCall = () => {
   return dispatch => {
-    // dispatch(requestRecipes);
+    dispatch(requestRecipes);
     return fetch(`https://api.edamam.com/search?q=chicken&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_API_KEY}&from=0&to=3&calories=591-722&health=alcohol-free`)
       .then(response => response.json())
       .then(
         (jsonifiedResponse) => {
           console.log(jsonifiedResponse);
-          dispatch(getRecipesSuccess(jsonifiedResponse.hits.recipes));
+          dispatch(getRecipesSuccess(jsonifiedResponse.hits.recipe));
+          console.log(jsonifiedResponse.hits[0].recipe.label);
         })
       .catch((error) => {
         dispatch(getRecipesFailure(error));
@@ -39,15 +40,15 @@ export const makeApiCall = () => {
   }
 }
 
-export const useProduct = (product) => {
-  const { name, brand, expiration, price, quantity, id } =product;
-  return {
-    type: c.USE_PRODUCT,
-    name: name,
-    brand: brand,
-    expiration: expiration,
-    price: price,
-    quantity: quantity,
-    id: id
-  }
-}
+// export const useProduct = (product) => {
+//   const { name, brand, expiration, price, quantity, id } =product;
+//   return {
+//     type: c.USE_PRODUCT,
+//     name: name,
+//     brand: brand,
+//     expiration: expiration,
+//     price: price,
+//     quantity: quantity,
+//     id: id
+//   }
+// }
