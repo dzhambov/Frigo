@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   formVisibleOnPage: formVisibleReducer,
   masterProductList: productListReducer,
   firestore: firestoreReducer,
-  recipes: recipesReducer
+  recipesApi: recipesReducer
 });
 
 export default rootReducer;

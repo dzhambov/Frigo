@@ -43,9 +43,9 @@ class Recipes extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    recipes: state.recipes,
-    isLoading: state.isLoading,
-    error: state.error
+    recipes: state.recipesApi.recipes,
+    isLoading: state.recipesApi.isLoading,
+    error: state.recipesApi.error
   }
 } 
 export default connect(mapStateToProps)(Recipes)
