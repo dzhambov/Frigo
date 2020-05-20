@@ -5,16 +5,15 @@ function Product(props) {
 
   return (
     <React.Fragment>
-      <div className="col-md-4">
-        <div onClick = {() => props.whenProductClicked(props.id)}>
+      <div className="Product">
+        <div className="ProductInfo" onClick = {() => props.whenProductClicked(props.id)}>
             <h2><em onClick={props.whenProductClicked}>{props.name}</em></h2>
-            <h4><em>Brand:</em> {props.brand}</h4>
-            <h4><em>Expiration Date:</em> {props.expiration}</h4>
-            <h4><em>Price:</em> {props.price}</h4>
-            <h5><em>Quantity:</em> {props.quantity}</h5>
-            <h5><em>{props.formattedPassedTime}</em></h5>
+            <h3><em>{props.brand}</em></h3>
+            <h5><em>Expiration Date:</em> {props.expiration}</h5>
+            <h5><em>Price:</em>{props.price}<em>Quantity:</em> {props.quantity}</h5>
+            <h5></h5>
           </div>
-          <div className="buttons">
+          <div className="ProductButtons">
             {props.quantity <= 0 && 
             <p>Sorry, this Product is out of stock</p>
             }
