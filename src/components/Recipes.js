@@ -28,10 +28,10 @@ class Recipes extends React.Component {
           <ul>
             {recipes.map((recipe, index) => 
             <li key={index}>
-              <h3>Title:{recipe.recipe.lable}</h3>
-              <h3>Calories:{recipe.recipe.calories}</h3>
-              <h3>Health Label:{recipe.recipe.healthLabels}</h3>
-              <h3>Image:{recipe.recipe.image}</h3>
+              <h3>{recipe.recipe.image}</h3>
+              <h3>{recipe.recipe.url}</h3>
+              <h3>Health Label: {recipe.recipe.healthLabels}</h3>
+              <h3>Calories: {recipe.recipe.calories}</h3>
             </li>
             )}
           </ul>
