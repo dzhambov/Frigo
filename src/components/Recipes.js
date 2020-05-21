@@ -25,15 +25,17 @@ class Recipes extends React.Component {
             </form>
           </div>
           <h1>Recipes</h1>
-          <ul>
+            <div className="RecipeResult">
             {recipes.map((recipe, index) => 
-            <li key={index}>
-              <h3><img src={recipe.recipe.image}/></h3>
-              <h3>Calories:{recipe.recipe.calories}</h3>
-              <h3>Health Label:{recipe.recipe.healthLabels}</h3>
-            </li>
-            )}
-          </ul>
+              <li key={index}>
+                <img className="image" src= {recipe.recipe.image}/>
+                <h3>{recipe.recipe.label}</h3>
+                <h4>Calories: {recipe.recipe.calories}</h4>
+                <h4>Health Label: {recipe.recipe.healthLabels}</h4>
+                <p><em>Ingredients:</em> {recipe.recipe.ingredientLines}</p>
+              </li>
+              )}
+            </div>
         </React.Fragment>
       ) 
     }
