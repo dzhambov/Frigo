@@ -27,16 +27,6 @@ class Recipes extends React.Component {
           <h1>Recipes</h1>
             <div className="RecipeResult">
             {recipes.map((recipe, index) => 
-<<<<<<< HEAD
-            <li key={index}>
-              <h3>{recipe.recipe.image}</h3>
-              <h3>{recipe.recipe.url}</h3>
-              <h3>Health Label: {recipe.recipe.healthLabels}</h3>
-              <h3>Calories: {recipe.recipe.calories}</h3>
-            </li>
-            )}
-          </ul>
-=======
               <li key={index}>
                 <img className="image" src= {recipe.recipe.image}/>
                 <h3>{recipe.recipe.label}</h3>
@@ -46,7 +36,6 @@ class Recipes extends React.Component {
               </li>
               )}
             </div>
->>>>>>> 5887932ea3f2471031fea5a15fd6d4d48f47b77a
         </React.Fragment>
       ) 
     }
